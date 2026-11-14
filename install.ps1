@@ -45,10 +45,10 @@ if (-not (Test-Path $wrapperPath)) {
 $configPath = Join-Path $PSScriptRoot "opencode.json"
 $config = Get-Content $configPath -Raw
 $pattern = '"node",\s*"[^"]*mcp-memory-vault\.mjs"'
-$replacement = '"node", "' + ($wrapperPath -replace '\\', '\\\\') + '"'
+$replacement = '"node", "' + ($wrapperPath.Replace('\', '\\')) + '"'
 if ($config -match $pattern) {
     $config = $config -replace $pattern, $replacement
-    Set-Content $configPath $config -Encoding UTF8
+    [System.IO.File]::WriteAllText($configPath, $config, (New-Object System.Text.UTF8Encoding($false)))
     Write-Host "Patched ecc-memory-vault wrapper path -> $wrapperPath" -ForegroundColor Green
 }
 else {

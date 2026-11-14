@@ -1,5 +1,13 @@
-﻿{
+{
     "$schema":  "https://opencode.ai/config.json",
+    "model":  "opencode-go/kimi-k2.7-code",
+    "small_model":  "opencode-go/claude-haiku-5-5",
+    "default_agent":  "build",
+    "agent":  {
+                  "planner":  {
+                                  "model":  "opencode-go/grok-4.7"
+                              }
+              },
     "plugins":  [
                     "opencode-gemini-auth",
                     "opencode-froggy",
@@ -53,7 +61,7 @@
                 "ecc-memory-vault":  {
                                          "type":  "local",
                                          "command":  [
-                                                         "node", "C:\\\\Users\\\\PC\\\\.config\\\\opencode\\\\mcp-memory-vault.mjs"
+                                                         "node", "C:\\Users\\PC\\.config\\opencode\\mcp-memory-vault.mjs"
                                                      ],
                                          "enabled":  true,
                                          "environment":  {
@@ -63,5 +71,3 @@
                                      }
             }
 }
-
-
