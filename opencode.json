@@ -6,7 +6,10 @@
     "agent":  {
                   "planner":  {
                                   "model":  "opencode-go/grok-4.7"
-                              }
+                              },
+                  "architect":  {
+                                    "model":  "opencode-go/grok-4.7"
+                                }
               },
     "plugins":  [
                     "opencode-gemini-auth",
