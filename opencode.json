@@ -1,0 +1,66 @@
+{
+    "$schema":  "https://opencode.ai/config.json",
+    "plugins":  [
+                    "opencode-gemini-auth",
+                    "opencode-froggy",
+                    "opencode-agent-memory"
+                ],
+    "mcp":  {
+                "context7":  {
+                                 "type":  "remote",
+                                 "url":  "https://mcp.context7.com/mcp",
+                                 "enabled":  true
+                             },
+                "playwright":  {
+                                   "type":  "local",
+                                   "command":  [
+                                                   "npx",
+                                                   "-y",
+                                                   "@playwright/mcp"
+                                               ],
+                                   "enabled":  true
+                               },
+                "sequential-thinking":  {
+                                            "type":  "local",
+                                            "command":  [
+                                                            "npx",
+                                                            "-y",
+                                                            "@modelcontextprotocol/server-sequential-thinking"
+                                                        ],
+                                            "enabled":  true
+                                        },
+                "github":  {
+                               "type":  "local",
+                               "command":  [
+                                               "npx",
+                                               "-y",
+                                               "@modelcontextprotocol/server-github"
+                                           ],
+                               "enabled":  true,
+                               "env":  {
+                                           "GITHUB_PERSONAL_ACCESS_TOKEN":  "{env:GITHUB_TOKEN}"
+                                       }
+                           },
+                "chrome-devtools":  {
+                                        "type":  "local",
+                                        "command":  [
+                                                        "npx",
+                                                        "-y",
+                                                        "chrome-devtools-mcp@latest"
+                                                    ],
+                                        "enabled":  true
+                                    },
+                "ecc-memory-vault":  {
+                                         "type":  "local",
+                                         "command":  [
+                                                         "node",
+                                                         "C:\\Users\\khaled.mahmoud\\AppData\\Roaming\\npm\\node_modules\\ecc-universal\\scripts\\memory-mcp.mjs"
+                                                     ],
+                                         "enabled":  true,
+                                         "environment":  {
+                                                             "ECC_MEMORY_HARNESS":  "opencode",
+                                                             "ECC_MEMORY_ALLOW_USER_SCOPE":  "1"
+                                                         }
+                                     }
+            }
+}
